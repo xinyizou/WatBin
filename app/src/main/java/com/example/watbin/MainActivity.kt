@@ -6,7 +6,6 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,13 +36,16 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_search -> {
                 toolbar.title = "Search"
-//                val searchFragment = SearchFragment()
-//                openFragment(searchFragment)
-                startSearchActivity()
+                val searchFragment = SearchFragment()
+                openFragment(searchFragment)
+//                startSearchActivity()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_camera -> {
-                toolbar.title = "Image Search"
+                toolbar.title = "Camera"
+//                val cameraFragment = CameraFragment()
+//                openFragment(cameraFragment)
+                startSearchActivity()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startSearchActivity() {
-        val intent = Intent(this, SearchActivity::class.java).apply {}
+        val intent = Intent(this, CameraActivity::class.java).apply {}
         startActivity(intent)
     }
 }
