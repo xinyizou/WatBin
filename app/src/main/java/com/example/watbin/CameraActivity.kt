@@ -40,11 +40,7 @@ class CameraActivity : AppCompatActivity() {
 
         detectedObjects = findViewById(R.id.detected_objects)
 
-        val button = findViewById<FloatingActionButton>(R.id.take_picture)
-
-        button.setOnClickListener {
             cameraHelper?.dispatchTakePictureIntent()
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -56,7 +52,6 @@ class CameraActivity : AppCompatActivity() {
 
             val classifyOptions = ClassifyOptions.Builder()
                 .imagesFile(photoFile)
-                .classifierIds(Collections.singleton("result"))
                 .build()
 
             AsyncTask.execute {
