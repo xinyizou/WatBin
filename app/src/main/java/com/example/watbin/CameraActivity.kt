@@ -12,6 +12,8 @@ import android.os.Build
 import android.provider.MediaStore
 import android.widget.Toast
 import kotlinx.android.synthetic.main.camera.*
+import com.ibm.watson.developer_cloud.service.security.IamOptions
+import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition
 
 
 class CameraActivity : AppCompatActivity() {
@@ -41,6 +43,12 @@ class CameraActivity : AppCompatActivity() {
                 openCamera()
             }
         }
+
+        val options = IamOptions.Builder()
+            .apiKey(getString(R.string.visual_recognition_apikey))
+            .build()
+
+        val visualRecognition = VisualRecognition("2018-3-19", options)
     }
 
     private fun openCamera() {
