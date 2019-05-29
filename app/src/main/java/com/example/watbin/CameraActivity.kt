@@ -1,81 +1,78 @@
 package com.example.watbin
 
+import android.Manifest
+import android.app.Activity
+import android.content.ContentValues
 import android.content.Intent
-import android.os.AsyncTask
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import com.ibm.watson.developer_cloud.android.library.camera.CameraHelper
-import com.ibm.watson.developer_cloud.service.security.IamOptions
-import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition
-import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyOptions
-import java.util.*
+import android.net.Uri
+import android.os.Build
+import android.provider.MediaStore
+import android.widget.Toast
+import kotlinx.android.synthetic.main.camera.*
+
 
 class CameraActivity : AppCompatActivity() {
 
-    var visualRecognition: VisualRecognition? = null
-    var cameraHelper: CameraHelper? = null
-    var imageView: ImageView? = null
-    var detectedObjects: TextView? = null
+    private val PERMISSION_CODE: Int = 1000
+    private val IMAGE_CAPTURE_CODE: Int = 1001
+    var image_uri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.camera)
-        var SERVER_API_ENDPOINT = "https://watson-waste-sorter-generous-kookaburra.mybluemix.net/api/sort"
 
-        val options = IamOptions.Builder()
-            .apiKey(getString(R.string.api_key))
-            .build()
+        take_picture.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.CAMERA)
+                    == PackageManager.PERMISSION_DENIED ||
+                    checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_DENIED
+                ) {
+                    val permission = arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    requestPermissions(permission, PERMISSION_CODE)
+                } else {
+                    openCamera()
+                }
+            }
+            else {
+                openCamera()
+            }
+        }
+    }
 
-        visualRecognition = VisualRecognition("2018_03_19", options)
+    private fun openCamera() {
+        val values = ContentValues()
+        values.put(MediaStore.Images.Media.TITLE, "New Picture")
+        values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera")
+        image_uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
 
-        cameraHelper = CameraHelper(this)
+        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri)
+        startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE)
+    }
 
-        imageView = findViewById(R.id.preview)
-
-        detectedObjects = findViewById(R.id.detected_objects)
-
-            cameraHelper?.dispatchTakePictureIntent()
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when(requestCode) {
+            PERMISSION_CODE -> {
+                if (grantResults.size > 0 && grantResults[0] ==
+                        PackageManager.PERMISSION_GRANTED) {
+                    openCamera()
+                }
+                else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CameraHelper.REQUEST_IMAGE_CAPTURE) {
-            val photo = cameraHelper?.getBitmap(resultCode)
-            val photoFile = cameraHelper?.getFile(resultCode)
-            imageView?.setImageBitmap(photo)
 
-            val classifyOptions = ClassifyOptions.Builder()
-                .imagesFile(photoFile)
-                .build()
-
-            AsyncTask.execute {
-                val response = visualRecognition?.classify(
-                    classifyOptions
-                )?.execute()
-
-                val classification = response!!.getImages()[0]
-
-                val classifier = classification.classifiers[0]
-
-                val output = StringBuffer()
-                for (`object` in classifier.classes) {
-                    if (`object`.score > 0.7f)
-                        output.append("<")
-                            .append(`object`.className)
-                            .append("> ")
-                }
-
-                runOnUiThread(Runnable {
-                    detectedObjects?.setText(output)
-                })
-            }
-
+        if (resultCode == Activity.RESULT_OK) {
+            preview.setImageURI(image_uri)
         }
     }
+
 }
