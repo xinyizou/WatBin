@@ -67,22 +67,22 @@ class ItemAdapter (itemList: List<Item>) : RecyclerView.Adapter<ItemAdapter.Item
             }
 
             else if (item.category == Category.ORGANIC) {
-                name.setBackgroundColor(Color.parseColor("#98FB98"))
-                name.setTextColor(Color.parseColor("#ff000000"))
+                name.setBackgroundColor(Color.parseColor("#027402"))
+                name.setTextColor(Color.parseColor("#ffffffff"))
             }
 
             else if (item.category == Category.PAPERS) {
-                name.setBackgroundColor(Color.parseColor("#D3D3D3"))
-                name.setTextColor(Color.parseColor("#ff000000"))
+                name.setBackgroundColor(Color.parseColor("#696969"))
+                name.setTextColor(Color.parseColor("#ffffffff"))
             }
 
             else if (item.category == Category.CONTAINERS) {
-                name.setBackgroundColor(Color.parseColor("#B0E0E6"))
-                name.setTextColor(Color.parseColor("#ff000000"))
+                name.setBackgroundColor(Color.parseColor("#0019BE"))
+                name.setTextColor(Color.parseColor("#ffffffff"))
             }
 
             else if (item.category == Category.OTHER) {
-                name.setBackgroundColor(Color.parseColor("#FFFF66"))
+                name.setBackgroundColor(Color.parseColor("#FFFF00"))
                 name.setTextColor(Color.parseColor("#ff000000"))
             }
         }

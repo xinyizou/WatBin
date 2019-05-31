@@ -16,6 +16,7 @@
             android:text="item"
             android:textSize="18dp"
             android:paddingVertical="20dp"
+            android:fontFamily="@font/bureau_grot"
             android:paddingLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -30,6 +31,7 @@
                 android:id="@+id/item_description"
                 android:text="item"
                 android:textSize="18dp"
+                android:fontFamily="@font/lemondelivre_normal"
                 android:paddingBottom="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -38,6 +40,7 @@
                 android:text="item"
                 android:textSize="18dp"
                 android:paddingBottom="20dp"
+                android:fontFamily="@font/lemondelivre_normal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
     </LinearLayout>

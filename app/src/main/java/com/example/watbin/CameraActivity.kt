@@ -123,7 +123,7 @@ class CameraActivity : AppCompatActivity() {
                         .imagesFile(imagesStream)
                         .imagesFilename(photoFile.getName())
                         .threshold(0.6F)
-                        .classifierIds(Arrays.asList("DefaultCustomModel_630285397"))
+                        .classifierIds(Arrays.asList("DefaultCustomModel_1144096716"))
                         .build();
                     var result: ClassifiedImages = mVisualRecognition!!.classify(classifyOptions).execute()
                     System.out.println(result);
@@ -145,7 +145,7 @@ class CameraActivity : AppCompatActivity() {
                     } catch (e: JSONException) {
                         e.printStackTrace();
                     }
-                    val finalName: String = "You should " + name!! + "! \nWe have " + score!! + " confidence"
+                    val finalName: String = "You should dispose as " + name!! + "! \nWe have " + score!! + " confidence"
                     runOnUiThread( object: Runnable {
                         override fun run() {
                             val detectedObjects = findViewById<TextView>(R.id.detected);

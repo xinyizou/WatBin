@@ -421,26 +421,155 @@ class SearchFragment : Fragment() {
         item.description = "On campus: Plastic bags (eg. shopping bags, bread bags, ziploc bags) cannot be recycled on campus and should be placed in the Garbage (black) bins.\n" +
                 "\n" +
                 "At home: Plastic bags can be recycled through Region of Waterloo curbside collection and can be placed in your Paper and Bags recycling bins. If you have multiple bags, please place them into one bag and place them in the bin."
+        item.category = Category.GARBAGE
+        list.add(item)
+
+        item = Item()
+        item.name = "PLASTIC STRAPPING"
+        item.description = "Plastic strapping from shipping boxes or other products should be placed in the Garbage (black) bins."
+        item.category = Category.GARBAGE
+        list.add(item)
+
+        item = Item()
+        item.name = "PLASTIC WRAPPING"
+        item.description = "On campus: Soft plastic wrapping (eg. water bottle or pop case wrapping) cannot be recycled on campus and should be placed in the Garbage (black) bins.\n" +
+                "\n" +
+                "At home: The Region of Waterloo collects soft plastic wrapping with other plastic bags in the Paper and Bags bin through curbside recycling. "
+        item.category = Category.GARBAGE
+        list.add(item)
+
+        item = Item()
+        item.name = "POST-IT NOTES"
+        item.description = "Post-it notes are recyclable and can be placed in the Papers (grey) bins. "
+        item.category = Category.PAPERS
+        list.add(item)
+
+        item = Item()
+        item.name = "RAZORS"
+        item.description = "Disposable razors and razor blades are not recycable and should be placed in the Garbage (black) bins. "
+        item.category = Category.GARBAGE
+        list.add(item)
+
+        item = Item()
+        item.name = "RECEIPTS"
+        item.description = "Receipts are recyclable and can be placed in the Papers (grey) bins."
+        item.category = Category.PAPERS
+        list.add(item)
+
+        item = Item()
+        item.name = "SCRAP METAL"
+        item.description = "Scrap metal can be recycled through Central Stores, East Campus Hall.\n" +
+                "\n" +
+                "Please fill out an asset disposal form and follow any other instructions available on the Central Stores website."
         item.category = Category.OTHER
         list.add(item)
 
         item = Item()
-        item.name = "NEWSPAPER"
-        item.description = "Newspaper can be placed in the Papers (grey) recycling bins."
-        item.category = Category.PAPERS
+        item.name = "SCRAP WOOD AND BRUSH"
+        item.description = "Scrap wood and brush can be collected by Plant Operations (ext. 33793) and converted into mulch. "
+        item.category = Category.OTHER
         list.add(item)
 
         item = Item()
-        item.name = "NEWSPAPER"
-        item.description = "Newspaper can be placed in the Papers (grey) recycling bins."
-        item.category = Category.PAPERS
+        item.name = "STRAWS, PAPER"
+        item.description = "Paper straws can be placed in the Organics (green) bins, which are available in main Food Services locations across campus. If there are no green bins available, please place used paper straws in the garbage."
+        item.category = Category.ORGANIC
         list.add(item)
 
         item = Item()
-        item.name = "NEWSPAPER"
-        item.description = "Newspaper can be placed in the Papers (grey) recycling bins."
-        item.category = Category.PAPERS
+        item.name = "STRAWS, PLASTIC"
+        item.description = "Plastic straws are not recyclable and must be placed in the Garbage (black) bins.\n" +
+                "\n" +
+                "Fun Fact: The University of Waterloo is phasing out plastic straws across campus by Fall 2018 and will replace them with paper straws. When eating out off-campus, consider purchasing a stainless steel straw - they are portable, easy to clean, and help keep plastic out of our oceans and natural environment!"
+        item.category = Category.GARBAGE
         list.add(item)
+
+        item = Item()
+        item.name = "SHIPPING BOXES"
+        item.description = "Shipping boxes can be broken down and placed beside recycling depots."
+        item.category = Category.OTHER
+        list.add(item)
+
+        item = Item()
+        item.name = "STRYOFOAM"
+        item.description = "Styrofoam is not recyclable and must be placed in the Garbage (black) bins."
+        item.category = Category.GARBAGE
+        list.add(item)
+
+        item = Item()
+        item.name = "TELEVISIONS, SMALL"
+        item.description = "Small televisions can be dropped off at Central Stores, East Campus Hall. \n" +
+                "\n" +
+                "Please fill out an asset disposal form and follow any other instructions available on the Central Stores website."
+        item.category = Category.OTHER
+        list.add(item)
+
+        item = Item()
+        item.name = "TEXTBOOKS"
+        item.description = "Textbooks can be recycled at the following locations:\n" +
+                "\n" +
+                "Feds Used Books (SLC lower atrium)\n" +
+                "ML 355\n" +
+                "EV1 138A\n" +
+                "\u200BPAS 2012\n" +
+                "Library - Davis \n" +
+                "Library - Porter\n" +
+                "Library - St. Jerome's\n" +
+                "Balsille School - 67 Erb St. W.\n" +
+                "St. Paul's - Next to the Greenhouse Office\n" +
+                "School of Pharmacy - Victoria Street (Need a FOB to access)\n" +
+                "V1 Community Center - Hallway to the right of the front desk\n" +
+                "UWP Grand Commons Community centre - Between Eby and Beck Hall \n" +
+                " View the Campus Map for the above locations."
+        item.category = Category.OTHER
+        list.add(item)
+
+        item = Item()
+        item.name = "TIN FOIL"
+        item.description = "Clean tin foil and aluminum foil trays can be placed in the Containers (blue) recycling bins.\n" +
+                "\n" +
+                "If your tin foil is dirty (e.g. baked on food), then it must be placed in the Garbage (black) bins."
+        item.category = Category.CONTAINERS
+        list.add(item)
+
+        item = Item()
+        item.name = "TOYS"
+        item.description = "Toys are not recyclable but is suitable for donation. Visit the Region of Waterloo's Residential Reduce and Reuse Options page > Directory of local programs, businesses and organizations > Toys for a list of donation locations. \n" +
+                "\n" +
+                "Otherwise, toys should be placed into the Garbage (black) bins. "
+        item.category = Category.OTHER
+        list.add(item)
+
+        item = Item()
+        item.name = "WAX PAPER"
+        item.description = "Wax paper (eg. Subway wraps, Tim Horton's bagel/sandwich liners) is not recyclable and must be placed in the Garbage (black) bins."
+        item.category = Category.GARBAGE
+        list.add(item)
+
+        item = Item()
+        item.name = "WRAPPERS, PLASTIC"
+        item.description = "Plastic wrappers (eg. chocolate bars, granola bars, candy) are not recyclable and must be placed in the Garbage (black) bins."
+        item.category = Category.GARBAGE
+        list.add(item)
+
+        item = Item()
+        item.name = "WRITING UTENSILS"
+        item.description = "TWriting utensils can be dropped off in several e-waste bins across campus:\n" +
+                "\n" +
+                "DC: Library\n" +
+                "SLC: Lower Atrium\n" +
+                "V1: Front desk"
+        item.category = Category.OTHER
+        list.add(item)
+
+        item = Item()
+        item.name = "ZIPLOCK BAGS"
+        item.description = "On campus: Ziploc bags cannot be recycled on campus and should be placed in the Garbage (black) bins. \n" +
+                "\n" +
+                "At home: Clean ziploc bags can be recycled through Region of Waterloo curbside collection and can be placed in your Paper and Bags recycling bin. If you have multiple bags, please place them in one bag and place that bag in your recycling bin. "
+        item.category = Category.GARBAGE
+        list.add(item)
+
         return list
     }
 

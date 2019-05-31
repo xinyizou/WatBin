@@ -1,23 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/container"
-        android:layout_width="match_parent"
+<LinearLayout
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<TextView-->
-            <!--android:id="@+id/title"-->
+    <!--<ImageView-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
-            <!--android:layout_marginRight="16dp"-->
-            <!--android:layout_marginTop="@dimen/activity_vertical_margin"-->
-            <!--android:layout_marginBottom="16dp"-->
-            <!--android:text="@string/title_home"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"/>-->
+            <!--android:id="@+id/imagebk"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--android:src="@mipmap/enviro"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:adjustViewBounds="true"/>-->
 
-</android.support.constraint.ConstraintLayout>
+    <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:background="@color/white"-->
+            <!--android:alpha="0.5"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/title"-->
+            <!--app:layout_constraintBottom_toBottomOf="@id/imagebk"-->
+    <!--/>-->
+
+    <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--android:src="@mipmap/challenge"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:adjustViewBounds="true"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Wat Bin?"
+            android:fontFamily="@font/bureau_grot"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="70sp"
+            android:textAlignment="center"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="20dp"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:fontFamily="@font/lemondelivre_normal"
+            android:textColor="@color/black"
+            android:id="@+id/home"
+            android:text="Up to 75% of garbage doesn't belong in the landfill. Use this app to sort your waste at the University of Waterloo."
+    />
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/env"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            />
+
+</LinearLayout>
