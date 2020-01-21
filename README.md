@@ -25,5 +25,7 @@ This photo is sent to a custom IBM Visual Recognition model.
 The model will return the predicted waste class and the confidence score.
 
 ![Image of Received data](https://github.com/xinyizou/WatBin/blob/master/images/pen_result.png)
+
+This tells the user the exact same information as if they were to search on the UWaterloo A-Z sorting page
 ![Image of UWaterloo sorting instructions](https://github.com/xinyizou/WatBin/blob/master/images/pen.PNG)
 
