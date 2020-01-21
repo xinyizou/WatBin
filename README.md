@@ -14,7 +14,7 @@ The user also has the option of using the search option to narrow down the list.
 
 ![Image of RecyclerView search](https://github.com/xinyizou/WatBin/blob/master/images/Screenshot_20190603-141812_WatBin.jpg)
 
-With the image recognition option, the user can upload a photo of the item they wish to dispose. The photo is taken with the Adnroid native camera activity. 
+With the image recognition option, the user can upload a photo of the item they wish to dispose. The photo is taken with the Android native camera activity. 
 
 ![Image of ImageRecognition](https://github.com/xinyizou/WatBin/blob/master/images/Screenshot_20190603-141831_WatBin.jpg)
 
@@ -25,3 +25,5 @@ This photo is sent to a custom IBM Visual Recognition model.
 The model will return the predicted waste class and the confidence score.
 
 ![Image of Received data](https://github.com/xinyizou/WatBin/blob/master/images/Screenshot_20190603-141910_WatBin.jpg)
+
+
